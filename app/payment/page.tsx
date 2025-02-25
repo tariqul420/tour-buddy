@@ -1,6 +1,5 @@
 import Image from 'next/image';
 
-// Hardcoding the image paths (for now, as dynamic importing is tricky on the client-side).
 const iconImages = [
   '/icons/visa.png',
   '/icons/master_card.jpg',
@@ -35,11 +34,11 @@ const paymentMethod = ['Bkash', 'Nagad', 'UPAY', 'VISA', 'Master Card', 'Others'
 const page = () => {
   return (
     <section className="w-10/12 mx-auto my-8">
-      <h2 className="text-2xl font-medium">Payment</h2>
+      <h2 className="text-2xl font-medium text-center sm:text-left">Payment</h2>
 
       {/* payment method section */}
-      <section className="grid grid-cols-12 mt-6 items-center justify-between gap-20">
-        <div className="col-span-8">
+      <section className="grid grid-cols-1 sm:grid-cols-12 mt-6 items-center justify-between gap-6 sm:gap-20">
+        <div className="col-span-1 sm:col-span-8">
           <h2 className="text-3xl font-medium">Choose Payment Method</h2>
 
           <div className="flex flex-col gap-4 mt-4">
@@ -64,15 +63,15 @@ const page = () => {
             <input type="number" placeholder="******" required className="border-none p-3 w-full bg-gray-100" />
           </div>
         </div>
-        <div className="col-span-4">
-          <Image src={'/payment-method.avif'} alt="payment method" width={300} height={300} className="rounded-3xl  border border-black" />
+        <div className="col-span-1 sm:col-span-4">
+          <Image src={'/payment-method.avif'} alt="payment method" width={300} height={300} className="rounded-3xl border border-black mx-auto sm:mx-0" />
         </div>
       </section>
 
       {/* select method section */}
       <section className="space-y-4 mt-8">
-        <h2 className="text-2xl font-semibold text-gray-800">Select Payment Method</h2>
-        <div className="flex justify-between flex-wrap gap-4">
+        <h2 className="text-2xl font-semibold text-gray-800 text-center sm:text-left">Select Payment Method</h2>
+        <div className="flex justify-center sm:justify-between flex-wrap gap-4">
           {paymentMethod?.map((payment, index) => (
             <button
               key={index}
@@ -90,9 +89,9 @@ const page = () => {
       </section>
 
       {/* payment icons section */}
-      <section className="flex flex-wrap w-11/12 mx-auto gap-4 mt-4">
+      <section className="flex flex-wrap justify-center sm:justify-start w-full gap-6 sm:gap-8 mt-4">
         {iconImages.map((icon, index) => (
-          <div key={index} className="w-24 h-24">
+          <div key={index} className="w-20 h-20 sm:w-24 sm:h-24">
             <Image src={icon} alt={`payment icon ${index + 1}`} width={100} height={100} className="rounded-lg border object-cover shadow-md w-full h-full" />
           </div>
         ))}
